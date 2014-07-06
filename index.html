@@ -1,0 +1,195 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Sign the petition for a mayors task force" />
+<meta property="og:site_name" content="Organizing Labs"/>
+<meta property="og:url" content='http://act.organizinglabs.org/'/>
+<meta property="og:type" content="petition" />
+    <title>Untitled Landing Page</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body onload="loadfunction();">
+  <!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MFPF72"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MFPF72');</script>
+<!-- End Google Tag Manager -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    
+    //grab the entire query string
+    var query = document.location.search.replace('?', '');
+    
+    //extract each field/value pair
+    query = query.replace("utm_source","SOURCE");
+    query = query.replace("utm_medium","MEDIUM");
+    query = query.replace("utm_term","TERM");
+    query = query.replace("utm_content","CONTENT");
+    query = query.replace("utm_campaign","CAMPAIGN");
+
+    query = query.split('&');
+    // query = query.replace("utm_","");
+    
+    //run through each pair
+    for (var i = 0; i < query.length; i++) {
+    
+      //split up the field/value pair into an array
+      var field = query[i].split("=");
+      
+      //target the field and assign its value
+      $("input[name='" + field[0] + "'], select[name='" + field[0] + "']").val(field[1]);
+    
+    }
+  });
+
+  //Facebook integration JS SDK stuff
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 672488586172328, // App ID
+      status     : true,    // check login status
+      cookie     : true,    // enable cookies to allow the
+                            // server to access the session
+      xfbml      : true,     // parse page for xfbml or html5
+                            // social plugins like login button below
+      version        : 'v2.0',  // Specify an API version
+    });
+    // Put additional init code here
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+    function postShare() {
+    alert("it's working");
+    FB.ui({
+  method: 'share_open_graph',
+  action_type: 'og.likes',
+  action_properties: JSON.stringify({
+  object:'http://act.organizinglabs.org/facebook.html',
+  })
+}, function(response){});
+  }
+
+  function loadfunction() {
+    var url = window.location.href;
+    if (url.indexOf("signed=yes")>0) {
+      alert("it's got it in the uRL!");
+      FB.ui({method: 'share_open_graph', action_type: 'og.likes', action_properties: JSON.stringify({object:'http://act.organizinglabs.org/index.html'})};
+  };
+</script>
+
+
+
+  <div style="background-image: url('capitol-at-night.jpg'); background-attachment: fixed; background-size: 100%;">
+    <div class="row">
+    	<div class="large-6 columns;"></div>
+    	<div class="large-6 medium-8 columns;">
+    	<div style="background-color:rgba(255,255,255,0.6); margin:10%;">
+	    <div class="row">
+	        	<div class="large-12 columns">
+	        	<div style="margin-left:5%; margin-right:5%;">
+	      			<h3>Sign the petition to message</h3>
+				    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed metus lobortis, congue ligula quis, eleifend risus. Pellentesque ac condimentum risus. Quisque vitae eros ac eros auctor luctus. Nunc et dui feugiat, tempor orci eu, vehicula lacus.</p>
+	        		<form action="http://joestemarie.us4.list-manage.com/subscribe/post?u=27e088ff809374f4111f30b29&amp;id=1361198e4e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	        		<div class="row">
+	        			
+	        			<div class="large-6 columns">
+	        				<label for="mce-FNAME">First Name
+	        					<input type="text" value="" name="FNAME" id="mce-FNAME" placeholder="more fields go here"/>
+	        				</label>
+	        			</div>
+	        			<div class="large-6 columns">
+	        				<label for="mce-LNAME">Last Name
+	        					<input type="text" value="" name="LNAME" id="mce-LNAME" placeholder="more fields go here"/>
+	        				</label>
+	        			</div>
+	        			<div class="large-12 columns">
+	        				<label for="MCE-email">Email Address
+	        					<input type="email"  value="" name="EMAIL" id="mce-EMAIL" placeholder="more fields go here"/>
+	        				</label>
+	        			</div>
+	        			<div style="position: absolute; left: -5000px;"><input type="text" name="b_27e088ff809374f4111f30b29_1361198e4e" tabindex="-1" value=""></div>
+	        			<div class="large-12 columns" style="align:center;">
+	        			<input type="hidden" name="SOURCE" />
+                <input type="hidden" name="MEDIUM" />
+                <input type="hidden" name="TERM" />
+                <input type="hidden" name="CONTENT" />
+                <input type="hidden" name="CAMPAIGN" />
+                <input type="hidden" name="PAGE" value="TaskforcePetition"/>
+	        			<input type="submit" class="button [radius round]"/>
+	        			</div>
+                <button class="button [radius round]" onClick="postShare();">Share on Facebook</button>
+	        		</div>
+	        		</form>
+	        	</div>
+	        	</div>
+	    		</div>
+	    		</div>   
+	    	</div>
+	    </div>
+	</div>
+	</div>
+</div>
+	<div style="background-color:#FFFFFF;">
+    	<div class="row">
+    		<div class="large-6 columns" style="margin:1%;">
+    			<h3 style="margin:5px;">This is where the details go</h3>
+    			<p>Here are some words that we should absolutely definitely change before we launch this:</p>
+    			<ul>
+    				<li>Item 1</li>
+    				<li>Item 2</li>
+    				<li>Item 3</li>
+    			</ul>
+    			<p>orem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed metus lobortis, congue ligula quis, eleifend risus. Pellentesque ac condimentum risus. Quisque vitae eros ac eros auctor luctus. Nunc et dui feugiat, tempor orci eu, vehicula lacus.</p>
+    			<p>orem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed metus lobortis, congue ligula quis, eleifend risus. Pellentesque ac condimentum risus. Quisque vitae eros ac eros auctor luctus. Nunc et dui feugiat, tempor orci eu, vehicula lacus.</p>
+    		</div>
+    		<div class="large-4 columns">
+    			<img src="url.jpg" style="width:100%;"/>
+    		</div>
+    	</div>
+    </div>
+     <div style="background-image: url('monument.png'); background-attachment: fixed; background-height: 100%; background-repeat:no-repeat;">
+     	<div class="row">
+     		<div class="large-12 columns">
+     		    	<div style="background-color:rgba(255,255,255,0.6); margin:5%; padding:5%;">
+     	<h3>HEADER</h3>
+     	<p>orem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed metus lobortis, congue ligula quis, eleifend risus. Pellentesque ac condimentum risus. Quisque vitae eros ac eros auctor luctus. Nunc et dui feugiat, tempor orci eu, vehicula lacus.</p>
+     	<p>orem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed metus lobortis, congue ligula quis, eleifend risus. Pellentesque ac condimentum risus. Quisque vitae eros ac eros auctor luctus. Nunc et dui feugiat, tempor orci eu, vehicula lacus.</p>
+     			</div>
+     		</div>
+     	</div>
+     </div>
+     <div style="background-color:#FFFFFF;">
+    	<div class="row">
+    		<div class="large-12 columns" style="margin:1%;">
+    			<h3 style="margin:5px;">Who We Are</h3>
+    			<p>Here are some words that we should absolutely definitely change before we launch this:</p>
+    			<ul>
+    				<li>Item 1</li>
+    				<li>Item 2</li>
+    				<li>Item 3</li>    				
+    			</ul>
+    			<img src="url.jpg" style="display:block; margin-left:auto; margin-right:auto;"/>
+    		</div>
+    	</div>
+    </div>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
