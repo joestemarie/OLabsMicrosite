@@ -52,7 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   });
 function signedPetition(firstname) {
 
-}
+};
 
 </script>
 
@@ -72,13 +72,13 @@ function signedPetition(firstname) {
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
+      //document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
+      //document.getElementById('status').innerHTML = 'Please log ' +
+      //  'into Facebook.';
     }
   }
 
@@ -133,8 +133,15 @@ function signedPetition(firstname) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      alert(response.name + "has logged in using Facebook!");
+      alert(response.name + "has logged in using Facebook! Their first name is " + response.first_name + "and email is " + response.email);
+    // document.mc-embedded-subscribe-form.mce-FNAME.value=response.first_name;
+    // document.mc-embedded-subscribe-form.mce-LNAME.value=response.last_name;
+    document.getElementById("mce-FNAME").value = response.first_name;
+    document.getElementById("mce-LNAME").value = response.last_name;
+    document.getElementById("mce-EMAIL").value = response.email;
 
+    //document.getElementbyId("mce-EMAIL").value=response.email;
+    document.getElementById("mc-embedded-subscribe-form").submit();
     });
   }
 </script>
@@ -179,8 +186,9 @@ function signedPetition(firstname) {
                 <input type="hidden" name="CAMPAIGN" />
                 <input type="hidden" name="PAGE" value="TaskforcePetition"/>
 	        			<input type="submit" class="button [radius round]"/>
-                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
                 </form>
+                <p>Sign the petition with Facebook.</p>
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 	        			</div>
 	        		</div>
 	        	</div>
