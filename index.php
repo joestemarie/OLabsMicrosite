@@ -133,7 +133,7 @@ function signedPetition(firstname) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      alert(response.name + "has logged in using Facebook! Their first name is " + response.first_name + "and email is " + response.email);
+      alert(response.name + "has logged in using Facebook! Their first name is " + response.first_name + "and email is " + response.email + "and age range is " + response.age_range);
     // document.mc-embedded-subscribe-form.mce-FNAME.value=response.first_name;
     // document.mc-embedded-subscribe-form.mce-LNAME.value=response.last_name;
     document.getElementById("mce-FNAME").value = response.first_name;
