@@ -56,6 +56,59 @@ function signedPetition(firstname) {
 
 </script>
 
+<script type="text/javascript">
+    $("#signupsubmit").onclick(function(e)
+{
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action");
+    $.ajax(
+    {
+        url : 'subscribe.php',
+        type: "POST",
+        data : postData,
+        success:function(data, textStatus, jqXHR) 
+        {
+            //data: return data from server
+        },
+        error: function(jqXHR, textStatus, errorThrown) 
+        {
+            //if fails      
+        }
+    });
+    e.preventDefault(); //STOP default action
+    e.unbind(); //unbind. to stop multiple form submit.
+});
+
+/*$("#ajaxform").submit(); //Submit  the FORM
+
+		$(document).ready(function() {
+			// jQuery Validation
+			$("#signup").validate({
+				// if valid, post data via AJAX
+				submitHandler: function(form) {
+          $("#emailsignupform").html("<span class='error'>Adding your email address...</span>");
+					$.post("subscribe.php", { fname: $("#FNAME").val(), lname: $("#LNAME").val(), email: $("#EMAIL").val(), medium: $("#MEDIUM").val(), source: $("#SOURCE").val(), term: $("#TERM").val(), content: $("#CONTENT").val(), campaign: $("#CAMPAIGN").val(), page: $("#PAGE").val()}, function(data) {
+						$('#response').html(data);
+
+					});
+				},
+				// all fields are required
+				rules: {
+					fname: {
+						required: true
+					},
+					lname: {
+						required: true
+					},
+					email: {
+						required: true,
+						email: true
+					}
+				}
+			});
+		});*/
+	</script>
+
 <body>
 <!-- NEW FACEBOOK CODE -->
 <script>
@@ -159,8 +212,8 @@ function signedPetition(firstname) {
 	        	<div style="margin-left:5%; margin-right:5%;">
 	      			<h3>Sign the petition to message</h3>
 				    <p>orem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed metus lobortis, congue ligula quis, eleifend risus. Pellentesque ac condimentum risus. Quisque vitae eros ac eros auctor luctus. Nunc et dui feugiat, tempor orci eu, vehicula lacus.</p>
-	        		<form action="http://joestemarie.us4.list-manage.com/subscribe/post?u=27e088ff809374f4111f30b29&amp;id=1361198e4e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-	        		<div class="row">
+	        		<form action="index.php" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	        		<div class="row" id="emailsignupform">
 	        			
 	        			<div class="large-6 columns">
 	        				<label for="mce-FNAME">First Name
@@ -185,10 +238,8 @@ function signedPetition(firstname) {
                 <input type="hidden" name="CONTENT" />
                 <input type="hidden" name="CAMPAIGN" />
                 <input type="hidden" name="PAGE" value="TaskforcePetition"/>
-	        			<input type="submit" class="button [radius round]"/>
+	        			<input type="button" id="signupsubmit" class="button [radius round]"/>
                 </form>
-                <p>Sign the petition with Facebook.</p>
-                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 	        			</div>
 	        		</div>
 	        	</div>
