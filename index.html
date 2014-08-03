@@ -1,0 +1,246 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untitled Landing Page</title>
+
+    <!-- Facebook open graph information -->
+    <meta property="og:title" content="Sign the petition for a mayors task force" />
+	<meta property="og:site_name" content="Organizing Labs"/>
+	<meta property="og:url" content='http://act.organizinglabs.org/'/>
+	<meta property="og:type" content="petition" />
+
+	<!-- Libraries -->    
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+
+
+
+</head>
+
+
+<body>
+<script>
+$(document).ready(function(){
+	/*$("#signupsubmit").click(function(){
+		$("#signupsubmit").fadeOut();
+		$("#formresults").append("<p>Form submission successful.</p>");
+		$("#formresults").fadeIn();
+	});*/
+	
+	$("#signupsubmit").click(function(){
+		var postData = $("form").serializeArray();
+		$.ajax({
+			url : "subscribe.php",
+			type: "POST",
+			data : postData,
+			success:function(data, textStatus, jqXHR) {
+					//data: return data from server
+					alert(data);
+				},
+			error: function(jqXHR, textStatus, errorThrown) {
+				//if fails
+				alert("error!");      
+				}
+		});
+	}); 
+}); 
+
+$(document).ready(function(){
+  $("#taskforcebox").click(function(){
+    $("#taskforcedrilldown").fadeToggle("slow");
+  });
+  $("#communitybox").click(function(){
+    $("#communitydrilldown").fadeToggle("slow");
+  });
+  $("#issuesbox").click(function(){
+    $("#issuesdrilldown").fadeToggle("slow");
+  });
+});
+
+<!-- Pass URL query strings to Mailchimp form -->
+$(function () {  
+    //grab the entire query string
+    var query = document.location.search.replace('?', '');
+    
+    //extract each field/value pair
+    query = query.replace("utm_source","SOURCE");
+    query = query.replace("utm_medium","MEDIUM");
+    query = query.replace("utm_term","TERM");
+    query = query.replace("utm_content","CONTENT");
+    query = query.replace("utm_campaign","CAMPAIGN");
+    query = query.split('&');
+    
+    //run through each pair
+    for (var i = 0; i < query.length; i++) {
+      //split up the field/value pair into an array
+      var field = query[i].split("=");
+      //target the field and assign its value
+      $("input[name='" + field[0] + "'], select[name='" + field[0] + "']").val(field[1]);
+    }
+});
+</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MFPF72"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MFPF72');</script>
+<!-- End Google Tag Manager -->
+
+
+
+<div style="background-image: url('capitol-at-night.jpg'); background-attachment: fixed; background-size: 100%; background-repeat:no-repeat;">
+	<div class="row">
+		<div class="large-6 columns;"></div>
+		<div class="large-6 medium-8 columns;">
+			<div style="background-color:rgba(255,255,255,0.6); margin:10%;">
+				<div class="row">
+					<div class="large-12 columns">
+						<div style="margin-left:5%; margin-right:5%;" id="fade">
+							<div id="signupform">
+								<h3>Demand a voice for DC students</h3>
+								<p>We’re fighting to create a Mayor’s Taskforce on Higher Education that would give DC students a voice in their communities. After 15 months of working with the Mayor’s Office, Mayor Vince Gray said “no” to listening to students. Sign the petition to tell DC government to give students a voice.</p>
+								
+								<form id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
+									<div class="row" id="emailsignupform">
+
+										<div class="large-6 columns">
+											<label for="mce-FNAME">First Name
+												<input type="text" value="" name="FNAME" id="mce-FNAME" placeholder="first name"/>
+												</label>
+											</div>
+										<div class="large-6 columns">
+											<label for="mce-LNAME">Last Name
+												<input type="text" value="" name="LNAME" id="mce-LNAME" placeholder="last name"/>
+												</label>
+											</div>
+										<div class="large-12 columns">
+											<label for="MCE-email">Email Address
+												<input type="email"  value="" name="EMAIL" id="mce-EMAIL" placeholder="email"/>
+												</label>
+											</div>
+										<div style="position: absolute; left: -5000px;"><input type="text" name="b_27e088ff809374f4111f30b29_1361198e4e" tabindex="-1" value=""></div>
+									<div class="large-12 columns" style="align:center;">
+										<input type="hidden" name="SOURCE" />
+										<input type="hidden" name="MEDIUM" />
+										<input type="hidden" name="TERM" />
+										<input type="hidden" name="CONTENT" />
+										<input type="hidden" name="CAMPAIGN" />
+										<input type="hidden" name="PAGE" value="TaskforcePetition"/>
+										<button id="signupsubmit" class="button [radius round]">Sign the petition.</button>
+										</div>
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				<div id="formresults"></div>
+				
+				</div>
+			</div>
+		</div>   
+	</div>
+
+	<div style="background-color:#FFFFFF;">
+    	<div class="row">
+    		<div class="large-12 columns">
+    			<h3>Take Action</h3>
+    			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam pellentesque suscipit lorem non sollicitudin. Nam ac velit blandit, rutrum tellus sed, eleifend massa. Quisque fringilla libero a ullamcorper hendrerit. Vivamus a elit pharetra, adipiscing tortor sit amet, convallis arcu. Vivamus eget ullamcorper augue, non tincidunt quam. Maecenas tincidunt quam vulputate arcu convallis aliquam. Mauris vulputate, nisi id suscipit elementum, turpis dui aliquam mauris, quis pretium erat arcu vitae magna. Ut sit amet ipsum vestibulum, cursus magna id, laoreet metus. Suspendisse ut convallis lacus, vel interdum lorem. Etiam lobortis libero neque, at mollis sapien auctor vel.</p>
+    		</div>
+    	</div>
+
+    	<div class="row" id="taskforcebox" style="background-color:#009BD5;">
+    		<div class="large-4 columns" style="background-color:#009BD5;">
+    			<a><h4 style="color:#FFFFFF;">A Mayor’s Taskforce would give college students a voice</h4>
+    			<p style="color:#FFFFFF;">The taskforce will bring students together to tackle common and unique issues at the District’s various institutions of higher education. The body will open a dialogue on how students across the city interface with their community and the District as a whole.</p></a>
+			</div>
+			<div class="large-8 columns" style="padding:0px;">
+				<a><img src="mayors-taskforce.png"/></a>
+			</div>
+		</div>
+		<div class="row" id="taskforcedrilldown" style="display:none;background-color:#009BD5;">
+			<div class="large-12 columns">
+				<ul style="color:#FFFFFF;"><li><b>Representation:</b> The taskforce will represent diverse perspective through a membership comprised of students from as many District institutions as possible; there are at least nine institutions in Washington, DC, not to mention all of those in the metro area.</li>
+				<li><b>Direct to the Mayor:</b> Two years ago students stepped up to the plate and elected a record number of student ANC Commissioners. But students need direct access to the Mayor to achieve the representation that they seek.</li>
+				<li><b>Institutionalization:</b> The taskforce will exist for two years, and one of its charges will be to identify a long-term mechanism for student representation to District government. Institutionalizing this interface is critical when the student population is transient.</li>
+				</ul>
+			</div>
+		</div>
+
+		<br/>
+
+		<a>
+		<div class="row" id="communitybox" style="background-color:#765992;">
+    		<div class="large-8 columns" style="padding:0px;">
+				<img src="students-community.png"/>
+			</div>
+			<div class="large-4 columns" style="background-color:#765992;">
+    			<h4 style="color:#FFFFFF;">College students are a significant slice of Washington, DC</h>
+    			<p>Over 85,000 students attend school in the District, and many stay after graduating. While here, students complete hundreds of thousands of hours of community service and are active contributors to the local economy. </p>
+			</div>
+		</div>
+		</a>
+
+		<div class="row" id="communitydrilldown" style="display:none;background-color:#765992;">
+			<div class="large-12 columns">
+				<ul style="color:#FFFFFF;">
+				<li><b>Public Service:</b> Students have made recent strides in their public service to the District, including nearly ten ANC Commissioners elected in 2012 - a huge increase from previous participation - and appointments to local boards and commissions.</li>
+				<li><b>Community Service:</b> The Consortium of Universities of the Washington Metropolitan Area reports that university community members completed over 600,000 hours of community service in the region last year.</li>
+				<li><b>Students are Staying:</b> Washington, DC has become one of the top metropolitan areas for graduates, including those who attend school here. Businessweek ranked DC #19 just five years ago, but the District is the now the number two contender - and that’s not changing anytime soon.</li>
+				</ul>
+			</div>
+		</div>
+
+		<br/>
+
+		<a>
+		<div class="row" id="issuesbox" style="background-color:#A5BB2A;">
+    		<div class="large-4 columns" style="background-color:#A5BB2A;">
+    			<h4 style="color:#FFFFFF;">DC issues impact DC students</h>
+    			<p>The city regularly engages with universities in the District, while student involvement is often a marginal concern. But the student perspective is lost as a result, when it often can’t be conflated with that of the institutional administrations.</p>
+			</div>
+			<div class="large-8 columns" style="padding:0px;">
+				<img src="student-issues.png"/>
+			</div>
+		</div>
+		</a>
+
+		<div class="row" id="issuesdrilldown" style="display:none;background-color:#A5BB2A;">
+			<div class="large-12 columns">
+				<ul style="color:#FFFFFF;">
+				<li><b>Public Service:</b> Students have made recent strides in their public service to the District, including nearly ten ANC Commissioners elected in 2012 - a huge increase from previous participation - and appointments to local boards and commissions.</li>
+				<li><b>Community Service:</b> The Consortium of Universities of the Washington Metropolitan Area reports that university community members completed over 600,000 hours of community service in the region last year.</li>
+				<li><b>Students are Staying:</b> Washington, DC has become one of the top metropolitan areas for graduates, including those who attend school here. Businessweek ranked DC #19 just five years ago, but the District is the now the number two contender - and that’s not changing anytime soon.</li>
+				</ul>
+			</div>
+		</div>
+
+	<hr/>
+
+    	<div class="row">
+    		<div class="large-12 columns" style="margin:1%;">
+    			<h3 style="margin:5px;">Who We Are</h3>
+    			<p>Here are some words that we should absolutely definitely change before we launch this:</p>
+    			<ul>
+    				<li>Item 1</li>
+    				<li>Item 2</li>
+    				<li>Item 3</li>    				
+    			</ul>
+    			<img src="url.jpg" style="display:block; margin-left:auto; margin-right:auto;"/>
+    		</div>
+    	</div>
+    </div>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
